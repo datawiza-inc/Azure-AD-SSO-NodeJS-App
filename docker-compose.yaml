@@ -1,0 +1,21 @@
+version: "3"
+services:
+  # Configuration of Datawiza Access Broker image begins here.
+  # Unless you know what you are doing, do not modify this block.
+  # If you need any assistant, please contact: info@datawiza.com
+  datawiza-access-broker:
+    image: datawiza/access-broker
+    container_name: datawiza-access-broker
+    ports:
+      - "9772:9772"
+    restart: always
+    environment:
+      PROVISIONING_KEY: 147GCLDDIPJMKIKO69FTRC9C9L
+      PROVISIONING_SECRET: 3LEM4QE3NOGIJ58A20PLHN7BTB
+
+  header-based-app:
+    build: ./demo/nodejs
+    container_name: header-based-app
+    ports:
+      - "8080:8080"
+    restart: always
